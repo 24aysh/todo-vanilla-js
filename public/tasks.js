@@ -7,6 +7,8 @@ document.querySelector(".btn").addEventListener("click", render);
 
 function render() {
   const task = document.querySelector(".search").value;
+  document.querySelector(".search").value = "";
+
   if (task && counter <= 7) {
     lDiv = document.createElement("div");
     lDiv.setAttribute("class", "lDiv");
