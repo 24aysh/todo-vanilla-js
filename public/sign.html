@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sign.css"> 
+    <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/fe/63/3f/fe633f65fbdb702027be5beeaaf1ce92.jpg">
+    <title>TODO</title>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/1.9.0/axios.min.js"></script>
+
+</head>
+<body>
+    
+    <script >
+        async function signin(){
+            const username = document.getElementById("txt1").value 
+            const password = document.getElementById("txt2").value
+            if(!username || !password){
+                alert("Enter the credentials")
+                return
+            }
+            const response = await axios.post("http://localhost:3001/signin",{
+                username:username,
+                password:password
+            })
+            if(response.data.TOKEN){
+                localStorage.setItem("token",response.data.TOKEN)
+                localStorage.setItem("username",username)
+                home()
+            }
+            else{
+                alert(response.data.Error)
+            }
+        }
+        async function signup(){
+            const username = document.getElementById("txt1").value 
+            const password = document.getElementById("txt2").value
+            if(!username || !password){
+                alert("Enter the Credentials")
+                return
+            }
+            const response = await axios.post("http://localhost:3001/signup", {
+                                    username: username,
+                                    password: password
+            });
+            
+            if(response.data.Response.includes("already")){
+                alert(response.data.Response)
+                
+            }else{
+                alert(response.data.Response)
+            }
+
+        }
+        async function home(){
+            const token = localStorage.getItem("token");
+            if (!token) {
+                alert("Please sign in first.");
+                return;
+            }
+            try {
+                const response = await axios.get("http://localhost:3001/home", {
+                    headers: {
+                        "token":token,
+                        
+                    }
+                });
+                document.open();
+                document.write(response.data);
+                document.close();
+
+                window.history.pushState({}, '', '/home');
+                
+            } catch (error) {
+                if (error.response?.status === 401) {
+                    alert('Access denied. Please sign in again.');
+                    localStorage.removeItem("token");
+                } else {
+                    alert('Error accessing home page: ' + error.message);
+                }
+            }
+        }
+
+    </script>
+    <div class="username" style="display: flex; justify-content: center;">
+        <span class="txt">
+            Username
+        </span>
+        <span class="input">
+            <input id= "txt1" placeholder="Enter your username" type="text">
+        </span>
+    </div>
+    <div class="passwd" style="display: flex; justify-content: center;">
+        <span class="txt">
+            Password
+        </span>
+        <span id="passwd">
+            <input id="txt2" placeholder="Enter your password" type="password">
+        </span>
+    </div>
+    <div class="buttons" style="display: flex; justify-content: center;">
+        <div >
+            <button class="not" onclick="signup()">Create Account</button>
+        </div>
+        <div >
+            <button class="signin" onclick="signin()">SignIn</button>
+        </div>
+    </div>
+    
+</body>
+</html>

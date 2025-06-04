@@ -1,0 +1,139 @@
+body{
+    background-color: #0a0a0a;
+}
+.main{
+    display: flex;
+    
+    justify-content: space-around;
+}
+.left{
+    margin-top: 80px;
+    color: #f5f5f5;
+    font-family: "Geist","Geist Fallback",sans-serif;
+    
+    /* background-color: rgb(213, 78, 101); */
+}
+#btmline{
+    font-size: 40px;
+    font-weight: lighter;
+   
+}
+#heading{
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#mid{
+    
+    font-size: 35px;
+    margin-bottom: 0px;
+}
+#third{
+    margin-top: 0px;
+    font-size: 40px;
+}
+.btn{
+    transition: all 0.2s ease;
+    margin-top: 125px;
+    margin-right: 10px ;
+    height: 42px;
+    width: 100px;
+    background-color: blueviolet;
+    border: 1px solid transparent;
+    color: #ececec;
+    border-radius: 8px;
+    font-size: large;
+    font-family: "Geist","Geist Fallback",sans-serif;
+}
+.btn:hover{
+    border: 2px solid blueviolet;
+}
+.btn:active{
+    background-color: #303030;
+    color: #bbbbbb;
+}
+.bar {
+  width: 20px; /* or any width you want for the strip */
+  background-color: blueviolet; /* choose any color */
+  height: 100vh; /* full viewport height */
+  position: fixed; /* or fixed, depending on layout */
+  right: 0px; /* optional: center in the page */
+  top: 0;
+}
+.search{
+    transition: all 0.2s ease;
+    background-color: #303030;
+    border-radius: 10px;
+    color: #f5f5f5;
+    width: 500px;
+    height: 40px;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    border: 1px solid #686363;
+    font-size: large;
+    font-family: "Geist","Geist Fallback",sans-serif;
+}
+.search:focus{
+    border: 1px solid blueviolet;
+    box-shadow: 0 0 10px 1px blueviolet;
+}
+.search::placeholder{
+    opacity: 30%;
+}
+.lDiv{
+    background-color: #303030;
+    margin-top: 15px;font-family: "Geist","Geist Fallback",sans-serif;font-size: 25px;
+    padding-top: 8px;color: #f5f5f5;
+    margin-bottom: 10px;
+    height: 35px;
+    width: 440px;
+    border-radius: 8px;
+    border: 1px solid blueviolet;
+    padding-left: 10px;
+}
+.rDiv{
+    display: flex;  gap: 20px;
+}
+.outer{
+    display: flex; gap: 30px;
+}
+#done{
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    height: 40px;
+    width: 80px;
+    background-color: blueviolet;
+    border: 1px solid transparent;
+    color: #ececec;
+    border-radius: 8px;
+    font-size: large;
+    font-family: "Geist","Geist Fallback",sans-serif;
+}
+#done:hover{
+    border: 2px solid blueviolet;
+}
+#done:active{
+    background-color: #303030;
+    color: #bbbbbb;
+}
+#delete{
+    transition: all 0.2s ease;
+    margin-top: 15px;
+    height: 40px;
+    width: 80px;
+    background-color: blueviolet;
+    border: 1px solid transparent;
+    color: #ececec;
+    border-radius: 8px;
+    font-size: large;
+    font-family: "Geist","Geist Fallback",sans-serif;
+}
+#delete:hover{
+    border: 2px solid blueviolet;
+}
+#delete:active{
+    background-color: #303030;
+    color: #bbbbbb;
+}
